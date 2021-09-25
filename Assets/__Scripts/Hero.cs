@@ -8,9 +8,9 @@ public class Hero : MonoBehaviour
 
     [Header("Set in Inspector")]
     // Поля управляющие движением корабля
-    public float speed;
-    public float rollMult;
-    public float pitchMult;
+    public float speed = 30;
+    public float rollMult = -45;
+    public float pitchMult = 30;
 
     [Header("Set Dynamically")]
     public float shieldLevel = 1;
