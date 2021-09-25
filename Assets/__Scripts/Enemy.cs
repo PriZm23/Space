@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
     public float fireRate = 0.3f; // Секунд между выстрелами
     public float health = 10f;
     public int score = 100; // Очки за уничтожение
+    private BoundsCheck bndCheck;
+    private void Awake()
+    {
+        bndCheck = GetComponent<BoundsCheck>();
+    }
 
     // Это свойство: метод, действующий как поле
     public Vector3 pos
@@ -25,6 +30,16 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Move();
+
+        if(bndCheck != null && !bndCheck.isOnScreen)
+        {
+            // Убедиться, что корабль вышел за нижнюю границу экрана
+            if(pos.y < bndCheck.camHeight - bndCheck.radius)
+            {
+                // Корабль за нижней границей, поэтому уничтожить
+                Destroy(gameObject);
+            }
+        }
     }
     public virtual void Move()
     {

@@ -81,8 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
+  keepOnScreen: 1
   camWidth: 0
   camHeight: 0
+  isOnScreen: 1
 --- !u!114 &2770351739085307621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: -2.5
+  keepOnScreen: 0
   camWidth: 0
   camHeight: 0
+  isOnScreen: 1
 --- !u!1 &1660748841919056761
 GameObject:
   m_ObjectHideFlags: 0
