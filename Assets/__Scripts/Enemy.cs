@@ -31,14 +31,10 @@ public class Enemy : MonoBehaviour
     {
         Move();
 
-        if(bndCheck != null && !bndCheck.isOnScreen)
+        if(bndCheck != null && bndCheck.offDown)
         {
-            // Убедиться, что корабль вышел за нижнюю границу экрана
-            if(pos.y < bndCheck.camHeight - bndCheck.radius)
-            {
-                // Корабль за нижней границей, поэтому уничтожить
-                Destroy(gameObject);
-            }
+            // Корабль за нижней границей, поэтому уничтожить
+            Destroy(gameObject);
         }
     }
     public virtual void Move()
