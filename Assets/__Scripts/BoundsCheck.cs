@@ -10,10 +10,12 @@ public class BoundsCheck : MonoBehaviour
     /// </summary>
     [Header("Set in Inspector")]
     public float radius = 1f;
+    public bool keepOnScreen = true;
 
     [Header("Set Dynamically")]
     public float camWidth;
     public float camHeight;
+    public bool isOnScreen = true;
 
     private void Awake()
     {
@@ -23,24 +25,33 @@ public class BoundsCheck : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 pos = transform.position;
+        isOnScreen = true;
 
         if(pos.x > camWidth - radius)
         {
             pos.x = camWidth - radius;
+            isOnScreen = false;
         }
         if(pos.x < -camWidth + radius)
         {
             pos.x = -camWidth + radius;
+            isOnScreen = false;
         }
         if(pos.y > camHeight - radius)
         {
             pos.y = camHeight - radius;
+            isOnScreen = false;
         }
         if(pos.y < -camHeight + radius)
         {
             pos.y = -camHeight + radius;
+            isOnScreen = false;
         }
-        transform.position = pos;
+        if(keepOnScreen && !isOnScreen)
+        {
+            transform.position = pos;
+            isOnScreen = true;
+        }
     }
     // Рисует границы в панели Scene с помощбю OnDrawGizmos()
     private void OnDrawGizmos()
