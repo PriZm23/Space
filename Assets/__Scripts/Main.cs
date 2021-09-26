@@ -45,4 +45,14 @@ public class Main : MonoBehaviour
         // Снова вызвать SpawnEnemy()
         Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
     }
+    public void DelayedRestart(float delay)
+    {
+        // Вызвать метод Restart() через delay секунд
+        Invoke("Restart", delay);
+    }
+    public void Restart()
+    {
+        // Перезагрузить _Scene_0
+        SceneManager.LoadScene("_Scene_0");
+    }
 }
