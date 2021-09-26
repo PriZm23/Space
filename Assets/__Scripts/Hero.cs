@@ -14,6 +14,7 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay = 2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
+    public Weapon[] weapons;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -100,10 +101,24 @@ public class Hero : MonoBehaviour
             shieldLevel--; // Уменьшить уровень защиты на 1
             Destroy(go); // и уничтожить врага
         }
+        else if(go.tag == "PowerUp")
+        {
+            // Если защитное поле столкнулось с бонусом
+            AbsorbPowerUp(go);
+        }
         else
         {
             print("Triggered by non Enemy:" + go.name);
         }
+    }
+    public void AbsorbPowerUp(GameObject go)
+    {
+        PowerUp pu = go.GetComponent<PowerUp>();
+        //switch (pu.type)
+        {
+            // Пока пустой
+        }
+        pu.AbsorbedBy(this.gameObject);
     }
     public float shieldLevel
     {
