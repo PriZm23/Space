@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
     public GameObject[] prefabEnemies; // Массив шаблонов Enemy
     public float enemySpawnPerSecond = 0.5f; // Спаун кораблей в секунду
     public float enemyDefaultPadding = 1.5f; // Отступ для позиционирования
+    public WeaponDefinition[] weaponDefinitions;
 
     private BoundsCheck bndCheck;
     private void Awake()
