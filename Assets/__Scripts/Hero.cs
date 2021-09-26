@@ -13,7 +13,8 @@ public class Hero : MonoBehaviour
     public float pitchMult = 30;
 
     [Header("Set Dynamically")]
-    public float shieldLevel = 1;
+    [SerializeField]
+    private float _shieldLevel = 1;
 
     // Ёта переменна€ хранит ссылку на последнийстолкнувшийс€ игровой объект
     private GameObject lastTriggerGo = null;
@@ -65,6 +66,22 @@ public class Hero : MonoBehaviour
         else
         {
             print("Triggered by non Enemy:" + go.name);
+        }
+    }
+    public float shieldLevel
+    {
+        get
+        {
+            return (_shieldLevel);
+        }
+        set
+        {
+            _shieldLevel = Mathf.Min(value, 4);
+            // ≈сли уровень пол€ упал до нул€ или ниже
+            if(value < 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
