@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float fireRate = 0.3f; // Секунд между выстрелами
     public float health = 10f;
     public int score = 100; // Очки за уничтожение
-    private BoundsCheck bndCheck;
+    protected BoundsCheck bndCheck;
     private void Awake()
     {
         bndCheck = GetComponent<BoundsCheck>();

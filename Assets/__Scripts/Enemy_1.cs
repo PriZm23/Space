@@ -44,6 +44,6 @@ public class Enemy_1 : Enemy
         // base.Move() обрабатывает движение вниз, вдоль оси Y
         base.Move();
 
-        // print(bndCheck.isOnScreen);
+        //print(bndCheck.isOnScreen);
     }
 }

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7420164664660384178}
   - component: {fileID: 7420164664660384141}
   - component: {fileID: -6141043372616513750}
+  - component: {fileID: -5323701657295835947}
   m_Layer: 9
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -157,6 +158,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f370b9e94f23e444b303dd6119547ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  score: 100
+  waveFrequency: 2
+  waveWidth: 4
+  waveRotY: 45
+--- !u!114 &-5323701657295835947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420164664660384179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bb50ec16e4bf548b884384281be31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: -2.5
+  keepOnScreen: 0
+  camWidth: 0
+  camHeight: 0
+  isOnScreen: 1
+  offRight: 0
+  offLeft: 0
+  offUp: 0
+  offDown: 0
 --- !u!1 &7420164665122128251
 GameObject:
   m_ObjectHideFlags: 0
