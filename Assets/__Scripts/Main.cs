@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Main : MonoBehaviour
 {
     public static Main S; // Одиночка
+    static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
 
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies; // Массив шаблонов Enemy
@@ -22,6 +23,13 @@ public class Main : MonoBehaviour
         bndCheck = GetComponent<BoundsCheck>();
         // Вызывать SpawnEnemy() один раз (в 2 сек по умолчанию)
         Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
+
+        // Словарь с ключами типа WeaponType
+        WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
+        foreach (WeaponDefinition def in weaponDefinitions)
+        {
+            WEAP_DICT[def.type] = def;
+        }
     }
     public void SpawnEnemy()
     {
@@ -55,5 +63,29 @@ public class Main : MonoBehaviour
     {
         // Перезагрузить _Scene_0
         SceneManager.LoadScene("_Scene_0");
+    }
+    /// <summary> 
+    /// Статическая функция, возвращающая WeaponDefinition из статического
+    /// защищенного поля WEAP_DICT класса Main.
+    /// </summary>
+    /// <returns>Экземпляр WeaponDefinition или, если нет такого определения
+    /// для указанного WeaponType, возвращает новый экземпляр WeaponDefinition
+    /// с типом none.</returns>
+    /// <param name = "wt" >Tиn оружия WeaponType, для которого требуется получить
+    /// WeaponDefinition</param>
+    public static WeaponDefinition GetWeaponDefinition(WeaponType wt)
+    {
+        // Проверить наличие указанного ключа в словаре
+        // Попытка извлечь значение по отсутствующему ключу
+        // вызовет ошибку, поэтому следующая инструкция 
+        // играет важную роль
+        if (WEAP_DICT.ContainsKey(wt))
+        {
+            return (WEAP_DICT[wt]);
+        }
+        // Следующая инструкция возвращает новый экземпляр WeaponDefinition
+        // с типом оружия WeaponType.none, что означает неудачную попытку
+        // найти требуемое определение WeaponDefinition
+        return (new WeaponDefinition());
     }
 }
