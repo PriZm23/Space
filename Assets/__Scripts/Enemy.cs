@@ -43,4 +43,13 @@ public class Enemy : MonoBehaviour
         tempPos.y -= speed * Time.deltaTime;
         pos = tempPos;
     }
+    private void OnCollisionEnter(Collision coll)
+    {
+        GameObject otherGO = coll.gameObject;
+        if(otherGO.tag == "ProjectileHero")
+        {
+            Destroy(otherGO); // ”ничтожить снар€д
+            Destroy(gameObject); // ”ничтожить врага
+        }
+    }
 }
