@@ -15,6 +15,9 @@ public class Hero : MonoBehaviour
     [Header("Set Dynamically")]
     public float shieldLevel = 1;
 
+    // Эта переменная хранит ссылку на последнийстолкнувшийся игровой объект
+    private GameObject lastTriggerGo = null;
+
     private void Awake()
     {
         if (S == null)
@@ -40,5 +43,28 @@ public class Hero : MonoBehaviour
 
         // Повернуть корабль, чтобы придать ощущение динамики
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        //print("Triggered: " + go.name);
+
+        //Гарантировать невозможность повторного столкновения с тем же объектом
+        if(go == lastTriggerGo)
+        {
+            return;
+        }
+        lastTriggerGo = go;
+
+        if(go.tag == "Enemy") // Если защитное поле столкнулось с вражеским кораблём
+        {
+            shieldLevel--; // Уменьшить уровень защиты на 1
+            Destroy(go); // и уничтожить врага
+        }
+        else
+        {
+            print("Triggered by non Enemy:" + go.name);
+        }
     }
 }
