@@ -123,71 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &83577886
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -9209288071032099277, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: cube
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -9209288071032099277, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541575, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_Name
-      value: PowerUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502008479120541626, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
 --- !u!1 &94876156
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,14 +338,14 @@ MonoBehaviour:
   pitchMult: 30
   gameRestartDelay: 2
   projectilePrefab: {fileID: 1371230918609896619, guid: 4da4d6aeebc746740b1cb4ce4bff2f27, type: 3}
-  projectileSpeed: 60
+  projectileSpeed: 40
   weapons:
   - {fileID: 1181784454}
   - {fileID: 2073444372}
   - {fileID: 2139257698}
   - {fileID: 1714309671}
   - {fileID: 1471948039}
-  _shieldLevel: 4
+  _shieldLevel: 3
 --- !u!114 &201265266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +710,8 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0
     velocity: 0
+  prefabPowerUp: {fileID: 2502008479120541575, guid: 008e70b58112d1e4a9b4ecc0ff540369, type: 3}
+  powerUpFrequency: 01000000010000000200000006000000
 --- !u!1 &1107495744
 GameObject:
   m_ObjectHideFlags: 0

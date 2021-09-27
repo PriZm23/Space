@@ -13,8 +13,36 @@ public class Main : MonoBehaviour
     public float enemySpawnPerSecond = 0.5f; // Спаун кораблей в секунду
     public float enemyDefaultPadding = 1.5f; // Отступ для позиционирования
     public WeaponDefinition[] weaponDefinitions;
+    public GameObject prefabPowerUp;
+    public WeaponType[] powerUpFrequency = new WeaponType[]
+    {
+        WeaponType.blaster, WeaponType.blaster,
+        WeaponType.spread, WeaponType.shield
+    };
 
     private BoundsCheck bndCheck;
+
+    public void ShipDestroyed(Enemy e)
+    {
+        // Сгенерировать бонус с заданной вероятностью
+        if(Random.value <= e.powerUpDropChance)
+        {
+            // Выбрать тип бонуса
+            // Выбрать один из элементов в powerUpFrequency
+            int ndx = Random.Range(0, powerUpFrequency.Length);
+            WeaponType puType = powerUpFrequency[ndx];
+
+            // Создать экзкмпляр PowerUp
+            GameObject go = Instantiate(prefabPowerUp) as GameObject;
+            PowerUp pu = go.GetComponent<PowerUp>();
+
+            // Установить соответствующий тип WeaponType
+            pu.SetType(puType);
+
+            // Поместить в место, где находился разрушенный корабль
+            pu.transform.position = e.transform.position;
+        }
+    }
     private void Awake()
     {
         S = this;

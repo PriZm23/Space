@@ -29,7 +29,7 @@ public class Hero : MonoBehaviour
     // Создать поле типа WeaponFireDelegate с именем fireDelegate
     public WeaponFireDelegate fireDelegate;
 
-    private void Awake()
+    private void Start()
     {
         if (S == null)
         {
@@ -40,6 +40,10 @@ public class Hero : MonoBehaviour
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S!");
         }
         //fireDelegate += TempFire;
+
+        // Очистить массив weapons и начать игру с одним бластером
+        ClearWeapons();
+        weapons[0].SetType(WeaponType.blaster);
     }
     private void Update()
     {
